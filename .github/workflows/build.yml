@@ -1,0 +1,29 @@
+name: build
+
+on:
+  schedule:
+    - cron: '40 22 * * *'
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+      - '**.txt'
+  workflow_dispatch:
+
+jobs: 
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout Push to Registry action
+      uses: actions/checkout@v3
+    - name: build
+      shell: bash
+      run: podman build . -t ghcr.io/10leej/htpc:latest
+    - name: login
+      shell: bash
+      run: podman login ghcr.io -u 10leej -p ${{ secrets.GITHUB_TOKEN }}
+    - name: push
+      shell: bash
+      run: podman push ghcr.io/10leej/htpc:latest
+      
