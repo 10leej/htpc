@@ -5,3 +5,5 @@ RUN git clone https://github.com/graysky2/kodi-standalone-service.git
 WORKDIR kodi-standalone-service
 RUN make install
 RUN systemctl enable kodi-wayland.service
+
+RUN rm -rf /tmp /var
