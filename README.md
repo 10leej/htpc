@@ -2,7 +2,7 @@
 
 This is a silverblue-like variant distribution that's literally an imaged based fedora instalation with minimum viable kodi.
 
-## Instalation
+## Installation
 From any silverblue/kinoite/servicea/ublue image just run this command to make your system a dedicated htpc
 
 `` rpm-ostree rebase ostree-unverified-registry:ghcr.io/10leej/htpc:latest  ``
