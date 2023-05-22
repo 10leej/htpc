@@ -5,6 +5,8 @@ RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-firewalld libblu
 RUN rpm-ostree install fedora-packager rpmdevtools gcc
 WORKDIR /
 RUN git clone https://github.com/avibrazil/kodi-inputstream-ffmpegdirect.git
+WORKDIR kodi-inputstream-ffmpegdirect
+RUN ls .
 RUN rpmbuild kodi-inputstream-ffmpegdirect.spec 
 RUN rpm-ostree install kodi-inputstream-ffmpegdirect.rpm 
 RUN rpm-ostree remove fedora-packager rpmdevtools gcc
