@@ -1,6 +1,7 @@
 FROM ghcr.io/ublue-os/base-main:latest
 run rpm-ostree install rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted
 RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-firewalld libbluray libbluray-utils libdvdcss nfs-utils samba
+RUN flatpak install flathub tv.kodi.Kodi
 
 # lets get kodi-inputstream-ffmpegdirect -- THIS DOESN'T WORK
 # RUN rpm-ostree install fedora-packager rpmdevtools gcc
