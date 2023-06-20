@@ -3,7 +3,7 @@ run rpm-ostree install rpmfusion-free-release-tainted rpmfusion-nonfree-release-
 RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-firewalld libbluray libbluray-utils libdvdcss nfs-utils samba flatpak
 
 # lets get kodi-inputstream-ffmpegdirect -- THIS DOESN'T WORK
-RUN rpm-ostree install fedora-packager rpmdevtools gcc 
+RUN rpm-ostree install fedora-packager rpmdevtools gcc cmake
 WORKDIR /
 RUN git clone https://github.com/xbmc/inputstream.ffmpegdirect.git
 WORKDIR inputstream.ffmpegdirect
