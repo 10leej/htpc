@@ -3,14 +3,15 @@ run rpm-ostree install rpmfusion-free-release-tainted rpmfusion-nonfree-release-
 RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-firewalld libbluray libbluray-utils libdvdcss nfs-utils samba flatpak
 
 # lets get kodi-inputstream-ffmpegdirect -- THIS DOESN'T WORK
-RUN rpm-ostree install fedora-packager rpmdevtools gcc cmake
-WORKDIR /
-RUN git clone https://github.com/xbmc/inputstream.ffmpegdirect.git
-WORKDIR inputstream.ffmpegdirect
-RUN ls .
-RUN mkdir build && cd build
-RUN cmake -DADDONS_TO_BUILD=inputstream.ffmpegdirect -DADDON_SRC_PREFIX=../.. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../../xbmc/build/addons -DPACKAGE_ZIP=1 ../../xbmc/cmake/addons
-RUN make install
+#RUN rpm-ostree install fedora-packager rpmdevtools gcc cmake
+#WORKDIR /
+#RUN git clone https://github.com/xbmc/inputstream.ffmpegdirect.git
+#RUN git clone --branch master https://github.com/xbmc/xbmc.git
+#WORKDIR inputstream.ffmpegdirect
+#RUN ls .
+#RUN mkdir build && cd build
+#RUN cmake -DADDONS_TO_BUILD=inputstream.ffmpegdirect -DADDON_SRC_PREFIX=../.. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../../xbmc/build/addons -DPACKAGE_ZIP=1 ../../xbmc/cmake/addons
+#RUN make install
 
 #RUN rpm-ostree install https://github.com/avibrazil/kodi-inputstream-ffmpegdirect/releases/download/19.0.3/kodi-inputstream-ffmpegdirect-debuginfo-19.0.3-4.fc36.x86_64.rpm
 #RUN rpm-ostree install kodi-pvr-iptvsimple
