@@ -23,5 +23,6 @@ WORKDIR kodi-standalone-service
 RUN make install
 RUN systemctl enable kodi-wayland.service
 RUN systemctl enable sshd.service
+RUN echo "Hello" >> /home/joshua/hello.txt
 
 RUN rm -rf /tmp /var
