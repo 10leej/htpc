@@ -27,6 +27,7 @@ RUN systemctl enable sshd.service
 # set the nfs share
 RUN echo "media -fstpe=nfs4,rw 192.168.0.2:/mnt/media/" >> /etc/auto.nfs
 RUN echo "/mnt/nfs /etc/auto.nfs --ghost --timeout=60" >> /etc/auto.master
+RUN systemctl enable autofs.service
 
 RUN rm -rf /tmp /var
 
