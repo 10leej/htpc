@@ -18,6 +18,7 @@ RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-firewalld libblu
 
 # now we need to get kodi to automagically launch on boot
 WORKDIR /
+RUN rpm-ostree install make automake gcc gcc-c++ kernel-devel
 RUN git clone https://github.com/graysky2/kodi-standalone-service.git
 WORKDIR kodi-standalone-service
 RUN make install
