@@ -1,6 +1,6 @@
 FROM ghcr.io/ublue-os/base-main:latest
 run rpm-ostree install rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted
-RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-firewalld libbluray libbluray-utils libdvdcss nfs-utils samba flatpak autofs
+RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-firewalld nfs-utilsflatpak
 
 # lets get kodi-inputstream-ffmpegdirect -- THIS DOESN'T WORK
 #RUN rpm-ostree install fedora-packager rpmdevtools gcc cmake
@@ -26,9 +26,9 @@ RUN systemctl enable kodi-wayland.service
 RUN systemctl enable sshd.service
 
 # set the nfs share
-RUN echo "media -fstpe=nfs4,rw 192.168.0.2:/mnt/media/" >> /etc/auto.nfs
-RUN echo "/mnt/nfs /etc/auto.nfs --ghost --timeout=60" >> /etc/auto.master
-RUN systemctl enable autofs.service
+#RUN echo "media -fstpe=nfs4,rw 192.168.0.2:/mnt/media/" >> /etc/auto.nfs
+#RUN echo "/mnt/nfs /etc/auto.nfs --ghost --timeout=60" >> /etc/auto.master
+#RUN systemctl enable autofs.service
 
 RUN rm -rf /tmp /var
 
