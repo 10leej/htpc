@@ -30,7 +30,7 @@ RUN systemctl enable sshd.service
 #RUN echo "/mnt/nfs /etc/auto.nfs --ghost --timeout=60" >> /etc/auto.master
 #RUN systemctl enable autofs.service
 RUN mkdir -p /fancy/media
-RUN echo "192.168.0.10:/srv/media /mnt/media nfs _netdev,defaults,x-systemd.automount,x-systemd.idle-timeout=600 0 0" >> /etc/fstab
+RUN echo "192.168.0.10:/srv/media /fancy/media nfs _netdev,defaults,x-systemd.automount,x-systemd.idle-timeout=600 0 0" >> /etc/fstab
 
 RUN rm -rf /tmp /var
 
