@@ -1,6 +1,6 @@
 FROM ghcr.io/ublue-os/base-main:latest
 run rpm-ostree install rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted
-RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-firewalld nfs-utils flatpak
+RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-firewalld nfs-utils flatpak samba
 
 # lets get kodi-inputstream-ffmpegdirect -- THIS DOESN'T WORK
 #RUN rpm-ostree install fedora-packager rpmdevtools gcc cmake
@@ -31,8 +31,9 @@ RUN systemctl enable sshd.service
 #RUN systemctl enable autofs.service
 #RUN mkdir -p /fancy/media
 
-COPY mnt-media.mount /etc/systemd/system/mnt-media.mount
-RUN systemctl enable mnt-media.mount
+# this is just for me mostly
+# COPY var-mnt-media.mount /etc/systemd/system/var-mnt-media.mount
+# RUN systemctl enable mnt-media.mount
 
 RUN rm -rf /tmp /var
 
