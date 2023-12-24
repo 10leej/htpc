@@ -20,7 +20,6 @@ This is purely for my own use, PR's are acceptable however we will not ship the 
 This image ships with mesa-freeworld and the intel media driver, it currently does not support nvidia since I don't own that kind of hardware.
 
 ## ToDo
-- Setup Steam-link to do this we might have to change off cage for a different compositor.
 - Slim the image down as much as we can for a true minimum viable kodi experience
 - Consider flatpaks
 - Confirm network storage and optical drive things work
