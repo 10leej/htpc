@@ -9,6 +9,9 @@ From any silverblue/kinoite/servicea/ublue image just run this command to make y
 
 The image ships with NFS/SMB support (not enabled) with ssh enabled out of the box.
 
+that said it's recommended you purge the system of any install flatpaks before you run the rebase since you wont have a graphical environment to launch them in anymore
+`` flatpak remove --all ``
+
 ## Mounting network shares
 It's preferabble you mount the NFS shares using systemd, I included a basic example mount file in the root of this repository you can write your own. Just remember you mount the drives in /var since /mnt is a symlink.
 This is a Silverblue thing, I don't know why they do it like this myself.
