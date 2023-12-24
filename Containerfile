@@ -4,17 +4,14 @@ RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-pvr-iptvsimple k
 
 # now we need to get kodi to automagically launch on boot
 WORKDIR /
-# RUN rpm-ostree install make automake gcc gcc-c++ kernel-devel
-# RUN git clone https://github.com/graysky2/kodi-standalone-service.git
-# WORKDIR kodi-standalone-service
-# RUN make install
-COPY kodi-wayland.service /etc/systemd/system/kodi-wayland.service
+COPY systemd/kodi-wayland.service /etc/systemd/system/kodi-wayland.service
 RUN systemctl enable kodi-wayland.service
-RUN systemctl enable sshd.service
 
-# this is just for me mostly
-# COPY var-mnt-media.mount /etc/systemd/system/var-mnt-media.mount
-# RUN systemctl enable mnt-media.mount
+# copy over out example nfs mount
+COPY systemd/var-mnt-media.mount /etc/systemd/system/var-mnt-media.mount
+
+
+RUN systemctl enable sshd.service
 
 RUN rm -rf /tmp /var
 

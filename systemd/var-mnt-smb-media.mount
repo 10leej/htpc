@@ -1,0 +1,14 @@
+[Unit]
+Description=samba mount script
+Requires=network-online.service
+After=network-online.service
+Before=kodi-wayland.service
+
+[Mount]
+What=//192.168.0.10/srv/media
+Where=/var/mnt/smb/media/
+Options=username=nasuser1,password=123nas,rw,vers=2.1
+Type=cifs
+
+[Install]
+WantedBy=multi-user.target
