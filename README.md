@@ -24,6 +24,3 @@ This image ships with mesa-freeworld and the intel media driver, it currently do
 - Consider flatpaks
 - Confirm network storage and optical drive things work
 
-## Why can't I insatll iptvsimple
-The fedora package kodi-pvr-iptvsimple depends on kodi-inputstream-ffmpegdirect which is not available in either rpmfusion or fedora's repositories. I'm working on figuring out what to do about this but I'm still learning rpm-ostree here too. However the folks [at rpmfusion are aware of this](https://bugzilla.rpmfusion.org/show_bug.cgi?id=6387).
-I did [fork Avi's repo](https://github.com/10leej/kodi-inputstream-ffmpegdirect) which has a src.rpm file but working on figuring out how to get it working with the github action script has been. interesting.
