@@ -16,6 +16,11 @@ that said it's recommended you purge the system of any install flatpaks before y
 It's preferabble you mount the NFS shares using systemd, I included a basic example mount file in the root of this repository you can write your own. Just remember you mount the drives in /var since /mnt is a symlink.
 This is a Silverblue thing, I don't know why they do it like this myself.
 
+Anyways you need a user with root access I'm including vim in this in case you don't want to use nano
+
+## Extra tools included
+You have htop, tmux, iftop, bmon, and vim. GL hf
+
 ## Disclaimer
 This is purely for my own use, PR's are acceptable however we will not ship the questionably legal stuff that you may or may not use kodi for.
 

@@ -1,6 +1,11 @@
+# pull in the ublue minimal image
 FROM ghcr.io/ublue-os/base-main:latest
-run rpm-ostree install rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted
+# setup rpmfusion repos
+RUN rpm-ostree install rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted
+# install packages
 RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-pvr-iptvsimple kodi-firewalld nfs-utils flatpak samba
+# install extra tools
+RUN rpm-ostree install tmux htop iftop bmon vim
 
 # now we need to get kodi to automagically launch on boot
 WORKDIR /
