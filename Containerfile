@@ -20,4 +20,4 @@ COPY systemd/var-mnt-smb-media.mount /etc/systemd/system/var-mnt-smb-media.mount
 RUN systemctl enable sshd.service
 
 RUN rm -rf /tmp /var
-
+ 
