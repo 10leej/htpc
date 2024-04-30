@@ -25,7 +25,7 @@ RUN useradd -m kodi
 # now lets make a sudo enabled user who can manage the system
 RUN useradd -mG wheel admin
 # and give him a password
-RUN passwd -e admin 
+RUN passwd -d -e admin 
 
 # and now thats done lets ensure the default target
 RUN systemctl set-default graphical.target
