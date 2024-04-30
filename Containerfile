@@ -19,5 +19,11 @@ COPY systemd/var-mnt-smb-media.mount /etc/systemd/system/var-mnt-smb-media.mount
 # enable ssh access
 RUN systemctl enable sshd.service
 
+# now lets make a user account for kodi who has a handy home directory for persistent kodi config
+RUN useradd -m kodi
+
+# and now thats done lets ensure the default target
+RUN systemctl set-default graphical.target
+
 RUN rm -rf /tmp /var
  
