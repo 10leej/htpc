@@ -22,6 +22,11 @@ RUN systemctl enable sshd.service
 # now lets make a user account for kodi who has a handy home directory for persistent kodi config
 RUN useradd -m kodi
 
+# now lets make a sudo enabled user who can manage the system
+RUN useradd -mG wheel admin
+# and give him a password
+RUN passwd -e admin 
+
 # and now thats done lets ensure the default target
 RUN systemctl set-default graphical.target
 
