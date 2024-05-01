@@ -1,0 +1,20 @@
+[Unit]
+Description=Create Admin User with Password Change on First Login
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+User=root
+Group=root
+
+# Create user with home directory /home/admin and assign to wheel group
+ExecStart=/usr/sbin/useradd -M -s /bin/bash -G wheel -d /home/admin admin
+
+# Set initial password (**replace-with-strong-password** with an actual strong password)
+ExecStartPost=/usr/bin/echo "admin:admin" | /usr/sbin/passwd --stdin admin
+
+# Enforce password change on first login
+ExecStartPost=/usr/sbin/chage -d 0 admin
+
+[Install]
+WantedBy=multi-user.target

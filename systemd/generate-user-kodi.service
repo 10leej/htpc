@@ -1,0 +1,18 @@
+[Unit]
+Description=Create Kodi User
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+User=root
+Group=root
+
+# Create user with home directory /home/kodi
+ExecStart=/usr/sbin/useradd -M -s /bin/bash -d /home/kodi kodi
+
+# Set an empty password (effectively disabling password login)
+# WARNING: This is a security risk. Only use this on a secure system!
+ExecStartPost=/usr/bin/passwd -l kodi
+
+[Install]
+WantedBy=multi-user.target

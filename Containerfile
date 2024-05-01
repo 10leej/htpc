@@ -19,14 +19,21 @@ COPY systemd/var-mnt-smb-media.mount /etc/systemd/system/var-mnt-smb-media.mount
 # enable ssh access
 RUN systemctl enable sshd.service
 
-# now lets make a user account for kodi who has a handy home directory for persistent kodi config
-RUN useradd -m kodi
+# ok lets add user accounts
 
-# now lets make a sudo enabled user who can manage the system we'll give him a random password that must be changed
-RUN useradd -mG wheel -p "" admin
+COPY systemd/generate-user-admin.service /etc/systemd/system/generate-user-admin.service
+COPY systemd/generate-user-kodi.service /etc/systemd/system/generate-user-kodi.service
+RUN systemctl enable generate-user-admin.service
+RUN systemctl enable generate-user-kodi.service
 
-# oh btw his password xpires in 0 seconds
-RUN chage -d 0 admin
+# # now lets make a user account for kodi who has a handy home directory for persistent kodi config
+# RUN useradd -m kodi
+# 
+# # now lets make a sudo enabled user who can manage the system we'll give him a random password that must be changed
+# RUN useradd -mG wheel -p "" admin
+# 
+# # oh btw his password xpires in 0 seconds
+# RUN chage -d 0 admin
 
 # and now thats done lets ensure the default target is graphical
 RUN systemctl set-default graphical.target
