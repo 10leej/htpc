@@ -21,10 +21,10 @@ RUN systemctl enable sshd.service
 
 # ok lets add user accounts
 
-COPY systemd/generate-user-admin.service /etc/systemd/system/generate-user-admin.service
-COPY systemd/generate-user-kodi.service /etc/systemd/system/generate-user-kodi.service
-RUN systemctl enable generate-user-admin.service
-RUN systemctl enable generate-user-kodi.service
+# COPY systemd/generate-user-admin.service /etc/systemd/system/generate-user-admin.service
+# COPY systemd/generate-user-kodi.service /etc/systemd/system/generate-user-kodi.service
+# RUN systemctl enable generate-user-admin.service
+# RUN systemctl enable generate-user-kodi.service
 
 # # now lets make a user account for kodi who has a handy home directory for persistent kodi config
 # RUN useradd -m kodi
