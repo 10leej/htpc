@@ -1,7 +1,7 @@
 # pull in the ublue minimal image
 FROM ghcr.io/ublue-os/base-main:latest
 # setup rpmfusion repos
-RUN rpm-ostree install rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted
+# RUN rpm-ostree install rpmfusion-free-release-tainted rpmfusion-nonfree-release-tainted
 # install packages
 RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-pvr-iptvsimple kodi-firewalld nfs-utils samba podman
 # install extra tools
