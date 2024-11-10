@@ -8,8 +8,8 @@ RUN rpm-ostree install rpmfusion-free-release-tainted rpmfusion-nonfree-release-
 
 # lets install the fundemental packages
 RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-pvr-iptvsimple kodi-firewalld nfs-utils samba podman
-# install extra tools
-RUN rpm-ostree install tmux htop bmon vim micro nano
+# install some practical tools
+RUN rpm-ostree install tmux vim nano
 
 # now we need to get kodi to automagically launch on boot
 WORKDIR /
@@ -18,8 +18,8 @@ COPY systemd/kodi-wayland.service /etc/systemd/system/kodi-wayland.service
 RUN systemctl enable kodi-wayland.service
 
 # copy over out example mounts
-COPY systemd/var-mnt-nfs-media.mount /etc/systemd/system/var-mnt-nfs-media.mount
-COPY systemd/var-mnt-smb-media.mount /etc/systemd/system/var-mnt-smb-media.mount
+COPY systemd/var-mnt-nfs-media.mount /etc/systemd/system/var-mnt-nfs-media.mount.example
+COPY systemd/var-mnt-smb-media.mount /etc/systemd/system/var-mnt-smb-media.mount.example
 
 # enable ssh access
 RUN systemctl enable sshd.service
