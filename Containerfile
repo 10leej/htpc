@@ -14,7 +14,7 @@ RUN rpm-ostree install tmux vim nano
 RUN rpm-ostree install cockpit cockpit-networkmanager cockpit-podman cockpit-storaged cockpit-files cockpit-ostree cockpit-packagekit
 RUN systemctl enable cockpit.socket
 # allow cockpit to not be blocked by the system firewall
-RUN firewall-cmd --add-port=9090
+RUN firewall-cmd --zone=public --add-service=cockpit
 
 # now we need to get kodi to automagically launch on boot
 WORKDIR /
