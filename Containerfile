@@ -11,9 +11,10 @@ RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-pvr-iptvsimple k
 # install some practical tools
 RUN rpm-ostree install tmux vim nano
 # some sysadmin tools
-RUN rpm-ostree install cockpit cockpit-networkmanager cockpit-podman cockpit-storaged cockpit-files cockpit-ostree
+RUN rpm-ostree install cockpit cockpit-networkmanager cockpit-podman cockpit-storaged cockpit-files cockpit-ostree cockpit-packagekit
 RUN systemctl enable cockpit.socket
-RUN systemctl disable firewalld
+# allow cockpit to not be blocked by the system firewall
+RUN firewall-cmd
 
 # now we need to get kodi to automagically launch on boot
 WORKDIR /
@@ -45,5 +46,3 @@ RUN systemctl set-default graphical.target
 
 # then lets cleaup after ourselves
 RUN rm -rf /tmp /var
-  
-
