@@ -12,6 +12,7 @@ RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-pvr-iptvsimple k
 RUN rpm-ostree install tmux vim nano
 # some sysadmin tools
 RUN rpm-ostree install cockpit cockpit-networkmanager cockpit-podman cockpit-storaged cockpit-files cockpit-ostree
+RUN systemctl enable cockpit.socket
 
 # now we need to get kodi to automagically launch on boot
 WORKDIR /
