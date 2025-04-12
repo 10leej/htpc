@@ -10,6 +10,8 @@ RUN rpm-ostree install rpmfusion-free-release-tainted rpmfusion-nonfree-release-
 RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-pvr-iptvsimple kodi-firewalld nfs-utils samba podman
 # install some practical tools
 RUN rpm-ostree install tmux vim nano
+# some sysadmin tools
+RUN rpm-ostree install cockpit cockpit-networkmanager cockpit-podman cockpit-storaged cockpit-files cockpit-ostree
 
 # now we need to get kodi to automagically launch on boot
 WORKDIR /
