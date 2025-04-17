@@ -46,3 +46,4 @@ RUN systemctl set-default graphical.target
 
 # then lets cleaup after ourselves
 RUN rm -rf /tmp /var
+
