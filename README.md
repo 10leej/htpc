@@ -39,3 +39,4 @@ This image ships with mesa-freeworld and the intel media driver, it currently do
 - Setup cockpit as a system management tool
 - Give the project a more proper name
 - Make this a good LibreElec Alternative as thats the current gold standard.
+- 
