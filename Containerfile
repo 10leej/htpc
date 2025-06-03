@@ -11,7 +11,7 @@ RUN rpm-ostree install cage kodi kodi-inputstream-adaptive kodi-pvr-iptvsimple k
 # install some practical tools
 RUN rpm-ostree install tmux vim nano
 
-RUN rpm-ostree install intel-gpu-tools intel-media-driver
+RUN rpm-ostree install intel-gpu-tools 
 
 # now we need to get kodi to automagically launch on boot
 WORKDIR /
